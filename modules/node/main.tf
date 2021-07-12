@@ -17,7 +17,8 @@ resource "openstack_compute_instance_v2" "instance" {
   flavor_name  = var.flavor_name
   key_pair     = var.keypair_name
   config_drive = var.config_drive
-  user_data = var.user_data_file != "" ? base64encode(templatefile((var.user_data_file) : base64encode(templatefile(("${path.module}/files/cloud-init.yml.tpl"),
+  user_data_template   = var.user_data_file != "" ? var.user_data_file : "${path.module}/files/cloud-init.yml.tpl"
+  user_data = base64encode(templatefile((user_data_template),
     { bootstrap_server = var.is_server && count.index != 0 ? openstack_networking_port_v2.port[0].all_fixed_ips[0] : var.bootstrap_server
       public_address   = var.is_server ? openstack_networking_floatingip_v2.floating_ip[count.index].address : ""
       rke2_token       = var.rke2_token
