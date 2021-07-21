@@ -138,3 +138,8 @@ variable "manifests_gzb64" {
 variable "do_upgrade" {
   type = bool
 }
+
+variable "user_data_file" {
+  type        = string
+  default     = null
+}

@@ -66,7 +66,7 @@
 | <a name="input_ssh_keypair_name"></a> [ssh\_keypair\_name](#input\_ssh\_keypair\_name) | SSH keypair name | `string` | `null` | no |
 | <a name="input_system_user"></a> [system\_user](#input\_system\_user) | Default OS image user | `string` | `"ubuntu"` | no |
 | <a name="input_use_ssh_agent"></a> [use\_ssh\_agent](#input\_use\_ssh\_agent) | Whether to use ssh agent | `bool` | `"true"` | no |
-| <a name="input_user_data_file"></a> [user\_data\_file](#input\_user\_data\_file) | User data file to provide when launching the instance | `string` | `null` | no |
+| <a name="input_user_data_file"></a> [user\_data\_file](#input\_user\_data\_file) | User data file to provide when launching the instance, it replace the node user_data found at modules/node/files/cloud-init.yml.tpl, this enable you to customize your installation | `string` | `null` | no |
 | <a name="input_write_kubeconfig"></a> [write\_kubeconfig](#input\_write\_kubeconfig) | Write kubeconfig file to disk | `bool` | `"false"` | no |
 
 ## Outputs
